@@ -13,12 +13,11 @@ public class PlayerListener implements Listener {
 
     @EventHandler
     public void onJoin(final PlayerLoginEvent event) {
-        ArenaPlugin.getInstance().getStatManager().saveAndPurge(event.getPlayer());
-
         final long time = System.currentTimeMillis();
         ArenaPlugin.getInstance().getServer().getScheduler().runTaskAsynchronously(ArenaPlugin.getInstance(), new Runnable() {
             @Override
             public void run() {
+                ArenaPlugin.getInstance().getStatManager().saveAndPurge(event.getPlayer());
                 ArenaPlugin.getInstance().getStatManager().setStat(event.getPlayer(), ArenaStat.LAST_LOGIN, time);
                 System.out.println("[WarArena] Updated data for: " + event.getPlayer().getName() + " set last login to '" + time + "' (took " + (System.currentTimeMillis() - time) + "ms)");
             }
