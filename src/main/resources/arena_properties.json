@@ -1,0 +1,12 @@
+{
+  "arena_corner_one": "-1,0,-1",
+  "arena_corner_two": "21,30,21",
+  "arena_random_locations": [
+    "0,0,0",
+    "5,0,5",
+    "10,0,10",
+    "15,0,15",
+    "20,0,20"
+  ],
+  "arena_wall_generation":true
+}
