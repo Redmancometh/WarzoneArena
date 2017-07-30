@@ -1,0 +1,7 @@
+{
+	"DB": {
+		"user": "root",
+		"password": "1024311",
+		"url": "jdbc:mysql://localhost/mcc"
+	}
+}

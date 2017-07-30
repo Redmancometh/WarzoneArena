@@ -5,6 +5,7 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
@@ -21,10 +22,12 @@ public class ArenaPlayer implements Serializable, Defaultable<UUID> {
     private UUID owner;
 
     @MapKeyClass(value = ArenaStat.class)
-    @ElementCollection(targetClass =  Integer.class)
-    private Map<ArenaStat, Long> playerStats = new ConcurrentHashMap<ArenaStat, Long>();
+    @ElementCollection(targetClass =  Long.class)
+    private Map<ArenaStat, Long> playerStats = new HashMap();
 
-    public ArenaPlayer() {}
+    public ArenaPlayer() {
+
+    }
 
     public UUID getUniqueId() {
         return owner;

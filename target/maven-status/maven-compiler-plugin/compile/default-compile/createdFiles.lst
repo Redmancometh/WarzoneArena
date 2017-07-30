@@ -11,4 +11,7 @@ me\borawski\arena\config\ArenaConfig.class
 me\borawski\arena\user\StatManager$3.class
 me\borawski\arena\ArenaPlugin$PlayerManager.class
 me\borawski\arena\user\StatManager$5$1.class
+me\borawski\arena\util\ChatUtil$DefaultFontInfo.class
 me\borawski\arena\user\StatManager$2.class
+me\borawski\arena\util\ChatUtil.class
+me\borawski\arena\util\TimeUtil.class

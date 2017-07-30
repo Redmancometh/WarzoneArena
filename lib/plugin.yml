@@ -1,4 +1,4 @@
-name: WarArena
+name: WarzoneArena
 version: 0.1
 main: me.borawski.arena.ArenaPlugin
-description: arena free for all
+description:
