@@ -9,6 +9,7 @@ import me.borawski.arena.config.ArenaConfig;
 import me.borawski.arena.listener.PlayerListener;
 import me.borawski.arena.user.ArenaPlayer;
 import me.borawski.arena.user.StatManager;
+import me.borawski.arena.util.Callback;
 import me.borawski.arena.warmup.WarmupManager;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -107,6 +108,10 @@ public class ArenaPlugin extends JavaPlugin implements RedPlugin {
 
     public String getPrefix() {
         return ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "Arkham" + ChatColor.WHITE + "" + ChatColor.BOLD + "Arena " + ChatColor.RESET + "" + ChatColor.GRAY;
+    }
+
+    public void runAsync(Callback callback) {
+        getServer().getScheduler().runTaskAsynchronously(this, callback::call);
     }
 
     public class PlayerManager extends ObjectManager<ArenaPlayer> {

@@ -58,14 +58,15 @@ public class PlayerListener implements Listener {
         if (event.getDamager() instanceof Player && event.getEntity() instanceof Player) {
             if (ArenaPlugin.getInstance().getArenaManager().isPlaying(event.getDamager().getUniqueId())) {
                 Player target = (Player) event.getEntity();
-                ArenaPlugin.getInstance().getArenaManager().remove(target.getUniqueId());
-                target.sendMessage(ArenaPlugin.getInstance().getPrefix() + "§cYou were killed! So your last location was deleted");
-                target.sendMessage(ArenaPlugin.getInstance().getPrefix() + "§eUse /arena to try your luck in the warzone arena again!");
+                if (target.getHealth() - event.getDamage() < 0.0D) {
+                    ArenaPlugin.getInstance().getArenaManager().remove(target.getUniqueId());
+                    target.sendMessage(ArenaPlugin.getInstance().getPrefix() + "§cYou were killed! So your last location was deleted");
+                    target.sendMessage(ArenaPlugin.getInstance().getPrefix() + "§eUse /arena to try your luck in the warzone arena again!");
 
-                if(target.getHealth()-event.getDamage() < 0.0D) {
                     Player player = (Player) event.getDamager();
                     ArenaPlugin.getInstance().getStatManager().incrementStat(player, ArenaStat.KILLS);
                     ArenaPlugin.getInstance().getStatManager().incrementStat(target, ArenaStat.DEATHS);
+                    ArenaPlugin.getInstance().runAsync(ArenaPlugin.getInstance().getArenaManager().computeNewKill(player.getUniqueId()));
                 }
             }
         }
