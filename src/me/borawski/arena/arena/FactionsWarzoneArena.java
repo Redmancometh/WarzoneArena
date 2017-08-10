@@ -29,12 +29,12 @@ public class FactionsWarzoneArena implements Arena {
 
     @Override
     public int[] getCorner1() {
-        return new int[]{-100,-100};
+        return new int[]{-319,-45};
     }
 
     @Override
     public int[] getCorner2() {
-        return new int[]{100,100};
+        return new int[]{-297,-67};
     }
 
 }

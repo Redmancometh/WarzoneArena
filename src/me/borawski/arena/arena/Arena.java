@@ -20,17 +20,15 @@ public interface Arena {
 
     boolean doesNotify();
 
-    default List<UUID> getAttendees() {
-        return new ArrayList<UUID>();
-    }
+    List<UUID> getAttendees();
 
     default List<Location> getSpawnpoints() {
         return new ArrayList<Location>() {
             {
-                add(LocationUtil.getLocation(getWorld(), "-299.5,65.0,-47.5"));
-                add(LocationUtil.getLocation(getWorld(), "-317.5,65.0,-47.5"));
-                add(LocationUtil.getLocation(getWorld(), "-317.5,65.0,-65.5"));
-                add(LocationUtil.getLocation(getWorld(),       "-299.5,65.0,-65.0"));
+                add(LocationUtil.getLocation(getWorld(), "-299.5,85.0,-47.5"));
+                add(LocationUtil.getLocation(getWorld(), "-317.5,85.0,-47.5"));
+                add(LocationUtil.getLocation(getWorld(), "-317.5,85.0,-65.5"));
+                add(LocationUtil.getLocation(getWorld(),       "-299.5,85.0,-65.0"));
             }
         };
     }
